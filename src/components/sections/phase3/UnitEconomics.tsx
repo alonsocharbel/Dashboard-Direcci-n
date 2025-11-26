@@ -1,5 +1,5 @@
 import { useFilters } from '../../../hooks/useFilters';
-import { KPICard, SectionCard } from '../../common';
+import { SectionCard } from '../../common';
 import { getPhase3Data } from '../../../data/mockPhases';
 import { formatCurrency } from '../../../utils/formatters';
 import { TrendingUp, DollarSign, Target } from 'lucide-react';
@@ -73,18 +73,18 @@ export function UnitEconomics() {
             </div>
           </div>
 
-          <div className={`bg-gradient-to-br from-${ratioStatus.color}-50 to-${ratioStatus.color}-100 rounded-lg border-2 border-${ratioStatus.color}-200 p-6`}>
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200 p-6">
             <div className="flex items-center gap-3 mb-3">
-              <div className={`p-2 bg-${ratioStatus.color}-500 rounded-lg`}>
+              <div className="p-2 bg-blue-500 rounded-lg">
                 <Target className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className={`text-xs font-medium text-${ratioStatus.color}-900`}>LTV:CAC Ratio</div>
-                <div className={`text-xs text-${ratioStatus.color}-700`}>Eficiencia del negocio</div>
+                <div className="text-xs font-medium text-blue-900">LTV:CAC Ratio</div>
+                <div className="text-xs text-blue-700">Eficiencia del negocio</div>
               </div>
             </div>
-            <div className={`text-3xl font-bold text-${ratioStatus.color}-900`}>{ltvCacRatio.toFixed(1)}:1</div>
-            <div className={`text-sm text-${ratioStatus.color}-700 mt-2`}>
+            <div className="text-3xl font-bold text-blue-900">{ltvCacRatio.toFixed(1)}:1</div>
+            <div className="text-sm text-blue-700 mt-2">
               {ratioStatus.status}
             </div>
           </div>
@@ -140,19 +140,19 @@ export function UnitEconomics() {
         </div>
 
         {/* Análisis y recomendaciones */}
-        <div className={`bg-${ratioStatus.color}-50 border border-${ratioStatus.color}-200 rounded-lg p-4`}>
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
           <div className="flex gap-3">
             <div className="text-2xl">
               {ratioStatus.color === 'green' ? '✅' : ratioStatus.color === 'yellow' ? '⚠️' : '🚨'}
             </div>
             <div>
-              <div className={`text-sm font-semibold text-${ratioStatus.color}-900 mb-1`}>
+              <div className="text-sm font-semibold text-green-900 mb-1">
                 Estado: {ratioStatus.status}
               </div>
-              <div className={`text-sm text-${ratioStatus.color}-800 mb-2`}>
+              <div className="text-sm text-green-800 mb-2">
                 {ratioStatus.message}
               </div>
-              <div className={`text-sm text-${ratioStatus.color}-800`}>
+              <div className="text-sm text-green-800">
                 <strong>Recomendaciones:</strong>
                 <ul className="list-disc list-inside mt-1 space-y-1">
                   {ltvCacRatio >= 3 ? (

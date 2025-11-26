@@ -4,11 +4,6 @@ import { formatCurrency, formatNumber } from '../../utils/formatters';
 import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
-interface TimeSeriesData {
-  date: string;
-  [key: string]: string | number;
-}
-
 interface LineConfig {
   dataKey: string;
   name: string;
@@ -16,11 +11,11 @@ interface LineConfig {
 }
 
 interface LineChartProps {
-  data: TimeSeriesData[];
+  data: Record<string, unknown>[];
   lines: LineConfig[];
   height?: number;
   formatType?: 'number' | 'currency' | 'percent';
-  format?: 'number' | 'currency' | 'percent'; // Alias for formatType
+  format?: 'number' | 'currency' | 'percent';
   showLegend?: boolean;
 }
 
@@ -32,7 +27,6 @@ export function LineChart({
   format: formatAlias,
   showLegend = true,
 }: LineChartProps) {
-  // Support both formatType and format props
   const effectiveFormat = formatType || formatAlias || 'number';
 
   const formatValue = (value: number): string => {
