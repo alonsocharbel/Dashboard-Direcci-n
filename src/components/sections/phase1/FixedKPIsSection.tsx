@@ -113,18 +113,18 @@ export function FixedKPIsSection() {
           </div>
         </div>
 
-        {/* GMV Histórico */}
-        <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl border border-emerald-200 p-5 shadow-sm">
+        {/* GMV Histórico - Fondo blanco */}
+        <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
           <h3 className="text-sm font-medium text-gray-600">GMV Histórico</h3>
           <p className="text-xs text-gray-400 mt-0.5">Total acumulado</p>
-          <p className="text-3xl font-bold text-emerald-700 mt-2">{formatCurrency(fixedData.gmvHistoric)}</p>
+          <p className="text-3xl font-bold text-gray-900 mt-2">{formatCurrency(fixedData.gmvHistoric)}</p>
         </div>
 
-        {/* Ingresos Histórico */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-5 shadow-sm">
+        {/* Ingresos Histórico - Fondo blanco */}
+        <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
           <h3 className="text-sm font-medium text-gray-600">Ingresos Histórico</h3>
           <p className="text-xs text-gray-400 mt-0.5">Total acumulado</p>
-          <p className="text-3xl font-bold text-blue-700 mt-2">{formatCurrency(fixedData.ingresosHistoric)}</p>
+          <p className="text-3xl font-bold text-gray-900 mt-2">{formatCurrency(fixedData.ingresosHistoric)}</p>
         </div>
       </div>
 
