@@ -6,6 +6,9 @@ const fixedData = {
   storesWithPlanActivated: 2340,
   storesWithPlanActivatedRate: 15.4,
   storesWithActivePlan: 1890, // actualmente activos
+  // GMV e Ingresos históricos
+  gmvHistoric: 285000000, // $285M
+  ingresosHistoric: 14250000, // $14.25M
   // Desglose por plan (histórico total)
   planBreakdownHistoric: {
     basicoMensual: 720,
@@ -28,14 +31,21 @@ const fixedData = {
   aiSectionAvgTime: 3.2, // segundos
 };
 
+const formatCurrency = (value: number) => {
+  if (value >= 1000000) {
+    return `$${(value / 1000000).toFixed(1)}M`;
+  }
+  return `$${value.toLocaleString()}`;
+};
+
 export function FixedKPIsSection() {
   return (
     <SectionCard
       title="Métricas Totales"
       subtitle="Valores históricos y en tiempo real - No afectados por filtro de tiempo"
     >
-      {/* Primera fila: Tiendas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      {/* Primera fila: Tiendas y GMV/Ingresos */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
         {/* Tiendas Totales Creadas */}
         <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
           <h3 className="text-sm font-medium text-gray-600">Tiendas Totales Creadas</h3>
@@ -73,7 +83,7 @@ export function FixedKPIsSection() {
           </div>
         </div>
 
-        {/* Tiendas con Plan Activo (sin LIVE badge) */}
+        {/* Tiendas con Plan Activo */}
         <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
           <h3 className="text-sm font-medium text-gray-600">Tiendas con Plan Activo</h3>
           <p className="text-xs text-gray-400 mt-0.5">En este momento</p>
@@ -101,6 +111,20 @@ export function FixedKPIsSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* GMV Histórico */}
+        <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl border border-emerald-200 p-5 shadow-sm">
+          <h3 className="text-sm font-medium text-gray-600">GMV Histórico</h3>
+          <p className="text-xs text-gray-400 mt-0.5">Total acumulado</p>
+          <p className="text-3xl font-bold text-emerald-700 mt-2">{formatCurrency(fixedData.gmvHistoric)}</p>
+        </div>
+
+        {/* Ingresos Histórico */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-5 shadow-sm">
+          <h3 className="text-sm font-medium text-gray-600">Ingresos Histórico</h3>
+          <p className="text-xs text-gray-400 mt-0.5">Total acumulado</p>
+          <p className="text-3xl font-bold text-blue-700 mt-2">{formatCurrency(fixedData.ingresosHistoric)}</p>
         </div>
       </div>
 
