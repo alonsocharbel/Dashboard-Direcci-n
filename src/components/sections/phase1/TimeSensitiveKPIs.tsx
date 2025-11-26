@@ -10,6 +10,13 @@ const dataByPeriod: Record<string, {
   storesCreatedWithAIChange: number;
   storesContractedPlan: number;
   storesContractedPlanChange: number;
+  planBreakdown: {
+    basicoMensual: number;
+    basicoAnual: number;
+    avanzadoMensual: number;
+    avanzadoAnual: number;
+    enterprise: number;
+  };
   totalRevenue: number;
   totalRevenueChange: number;
 }> = {
@@ -20,6 +27,13 @@ const dataByPeriod: Record<string, {
     storesCreatedWithAIChange: 18.3,
     storesContractedPlan: 156,
     storesContractedPlanChange: 22.5,
+    planBreakdown: {
+      basicoMensual: 52,
+      basicoAnual: 38,
+      avanzadoMensual: 28,
+      avanzadoAnual: 35,
+      enterprise: 3,
+    },
     totalRevenue: 425000,
     totalRevenueChange: 15.8,
   },
@@ -30,6 +44,13 @@ const dataByPeriod: Record<string, {
     storesCreatedWithAIChange: 24.2,
     storesContractedPlan: 624,
     storesContractedPlanChange: 28.5,
+    planBreakdown: {
+      basicoMensual: 198,
+      basicoAnual: 156,
+      avanzadoMensual: 112,
+      avanzadoAnual: 146,
+      enterprise: 12,
+    },
     totalRevenue: 1850000,
     totalRevenueChange: 22.3,
   },
@@ -40,6 +61,13 @@ const dataByPeriod: Record<string, {
     storesCreatedWithAIChange: 45.8,
     storesContractedPlan: 1890,
     storesContractedPlanChange: 52.3,
+    planBreakdown: {
+      basicoMensual: 580,
+      basicoAnual: 485,
+      avanzadoMensual: 345,
+      avanzadoAnual: 438,
+      enterprise: 42,
+    },
     totalRevenue: 5200000,
     totalRevenueChange: 38.5,
   },
@@ -70,13 +98,47 @@ export function TimeSensitiveKPIs() {
           format="number"
           sparklineData={generateSparklineData(data.storesCreatedWithAI, 14)}
         />
-        <KPICard
-          title="Tiendas que Contrataron Plan"
-          value={data.storesContractedPlan}
-          change={data.storesContractedPlanChange}
-          format="number"
-          sparklineData={generateSparklineData(data.storesContractedPlan, 14)}
-        />
+        
+        {/* Card especial con desglose de planes */}
+        <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h3 className="text-sm font-medium text-gray-600">Tiendas que Contrataron Plan</h3>
+              <div className="flex items-baseline gap-2 mt-1">
+                <span className="text-2xl font-bold text-gray-900">{data.storesContractedPlan.toLocaleString()}</span>
+                <span className="text-sm font-medium text-green-600">+{data.storesContractedPlanChange}%</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Desglose por tipo de plan */}
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="text-xs font-medium text-gray-500 mb-2">Desglose por plan:</div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Básico Mensual</span>
+                <span className="font-semibold text-blue-600">{data.planBreakdown.basicoMensual}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Básico Anual</span>
+                <span className="font-semibold text-blue-700">{data.planBreakdown.basicoAnual}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Avanzado Mensual</span>
+                <span className="font-semibold text-purple-600">{data.planBreakdown.avanzadoMensual}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Avanzado Anual</span>
+                <span className="font-semibold text-purple-700">{data.planBreakdown.avanzadoAnual}</span>
+              </div>
+              <div className="flex justify-between col-span-2">
+                <span className="text-gray-600">Enterprise</span>
+                <span className="font-semibold text-amber-600">{data.planBreakdown.enterprise}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <KPICard
           title="Ingresos Totales"
           value={data.totalRevenue}

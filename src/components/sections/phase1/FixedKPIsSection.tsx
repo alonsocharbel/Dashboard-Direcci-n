@@ -5,7 +5,7 @@ const fixedData = {
   totalStoresCreated: 15234,
   storesWithPlan: 2340,
   storesWithPlanRate: 15.4, // (2340/15234)*100
-  sellersWithPaidPlan: 1890, // LIVE - en este momento
+  sellersWithActivePlan: 1890, // LIVE - en este momento
 };
 
 export function FixedKPIsSection() {
@@ -28,8 +28,8 @@ export function FixedKPIsSection() {
           format="number"
         />
         <KPICard
-          title="Sellers con Plan Pagado"
-          value={fixedData.sellersWithPaidPlan}
+          title="Sellers con Plan Activo"
+          value={fixedData.sellersWithActivePlan}
           subtitle="En este momento (live)"
           format="number"
           highlight={true}
