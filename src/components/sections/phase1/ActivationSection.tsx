@@ -1,7 +1,7 @@
 import { useFilters } from '../../../hooks/useFilters';
 import { SectionCard } from '../../common';
 
-// Datos de activación por periodo
+// Datos de activación por periodo con los nuevos textos
 const activationDataByPeriod: Record<string, {
   metrics: { name: string; percentage: number; count: number }[];
   totalStores: number;
@@ -9,39 +9,45 @@ const activationDataByPeriod: Record<string, {
   '7d': {
     metrics: [
       { name: 'Crearon primer producto', percentage: 68, count: 2346 },
-      { name: 'Activaron pagos', percentage: 62, count: 2139 },
-      { name: 'Configuraron envíos', percentage: 58, count: 2001 },
-      { name: 'Configuraron dominio', percentage: 45, count: 1553 },
-      { name: 'Métodos y condiciones', percentage: 42, count: 1449 },
+      { name: 'Activaron T1Pagos', percentage: 62, count: 2139 },
+      { name: 'Configuraron métodos de envío', percentage: 58, count: 2001 },
+      { name: 'Añade dirección de origen', percentage: 52, count: 1794 },
+      { name: 'Configuraron dominio propio', percentage: 45, count: 1553 },
+      { name: 'Configuraron términos y condiciones', percentage: 42, count: 1449 },
       { name: 'Configuraron redes sociales', percentage: 38, count: 1311 },
-      { name: 'Burbuja de WhatsApp', percentage: 35, count: 1208 },
-      { name: 'Personalizaron en builder', percentage: 78, count: 2691 },
+      { name: 'Activaron burbuja de WhatsApp', percentage: 35, count: 1208 },
+      { name: 'Activa canal de venta', percentage: 28, count: 966 },
+      { name: 'Firma contrato Sears o Sanborns', percentage: 8, count: 276 },
     ],
     totalStores: 3450,
   },
   '30d': {
     metrics: [
       { name: 'Crearon primer producto', percentage: 68, count: 9384 },
-      { name: 'Activaron pagos', percentage: 62, count: 8556 },
-      { name: 'Configuraron envíos', percentage: 58, count: 8004 },
-      { name: 'Configuraron dominio', percentage: 45, count: 6210 },
-      { name: 'Métodos y condiciones', percentage: 42, count: 5796 },
+      { name: 'Activaron T1Pagos', percentage: 62, count: 8556 },
+      { name: 'Configuraron métodos de envío', percentage: 58, count: 8004 },
+      { name: 'Añade dirección de origen', percentage: 52, count: 7176 },
+      { name: 'Configuraron dominio propio', percentage: 45, count: 6210 },
+      { name: 'Configuraron términos y condiciones', percentage: 42, count: 5796 },
       { name: 'Configuraron redes sociales', percentage: 38, count: 5244 },
-      { name: 'Burbuja de WhatsApp', percentage: 35, count: 4830 },
-      { name: 'Personalizaron en builder', percentage: 78, count: 10764 },
+      { name: 'Activaron burbuja de WhatsApp', percentage: 35, count: 4830 },
+      { name: 'Activa canal de venta', percentage: 28, count: 3864 },
+      { name: 'Firma contrato Sears o Sanborns', percentage: 8, count: 1104 },
     ],
     totalStores: 13800,
   },
   '90d': {
     metrics: [
       { name: 'Crearon primer producto', percentage: 65, count: 25870 },
-      { name: 'Activaron pagos', percentage: 60, count: 23880 },
-      { name: 'Configuraron envíos', percentage: 55, count: 21890 },
-      { name: 'Configuraron dominio', percentage: 42, count: 16716 },
-      { name: 'Métodos y condiciones', percentage: 40, count: 15920 },
+      { name: 'Activaron T1Pagos', percentage: 60, count: 23880 },
+      { name: 'Configuraron métodos de envío', percentage: 55, count: 21890 },
+      { name: 'Añade dirección de origen', percentage: 50, count: 19900 },
+      { name: 'Configuraron dominio propio', percentage: 42, count: 16716 },
+      { name: 'Configuraron términos y condiciones', percentage: 40, count: 15920 },
       { name: 'Configuraron redes sociales', percentage: 35, count: 13930 },
-      { name: 'Burbuja de WhatsApp', percentage: 32, count: 12736 },
-      { name: 'Personalizaron en builder', percentage: 75, count: 29850 },
+      { name: 'Activaron burbuja de WhatsApp', percentage: 32, count: 12736 },
+      { name: 'Activa canal de venta', percentage: 25, count: 9950 },
+      { name: 'Firma contrato Sears o Sanborns', percentage: 6, count: 2388 },
     ],
     totalStores: 39800,
   },

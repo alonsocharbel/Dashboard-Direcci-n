@@ -2,7 +2,7 @@ import { useFilters } from '../../../hooks/useFilters';
 import { SectionCard, KPICard } from '../../common';
 import { generateSparklineData } from '../../../data/mockData';
 
-// Datos por periodo
+// Datos por periodo (sin Enterprise)
 const dataByPeriod: Record<string, {
   gmv: number;
   gmvChange: number;
@@ -15,7 +15,6 @@ const dataByPeriod: Record<string, {
     basicoAnual: number;
     avanzadoMensual: number;
     avanzadoAnual: number;
-    enterprise: number;
   };
   totalRevenue: number;
   totalRevenueChange: number;
@@ -25,14 +24,13 @@ const dataByPeriod: Record<string, {
     gmvChange: 12.5,
     storesCreatedWithAI: 892,
     storesCreatedWithAIChange: 18.3,
-    storesContractedPlan: 156,
+    storesContractedPlan: 153,
     storesContractedPlanChange: 22.5,
     planBreakdown: {
       basicoMensual: 52,
       basicoAnual: 38,
       avanzadoMensual: 28,
       avanzadoAnual: 35,
-      enterprise: 3,
     },
     totalRevenue: 425000,
     totalRevenueChange: 15.8,
@@ -42,14 +40,13 @@ const dataByPeriod: Record<string, {
     gmvChange: 18.5,
     storesCreatedWithAI: 3580,
     storesCreatedWithAIChange: 24.2,
-    storesContractedPlan: 624,
+    storesContractedPlan: 612,
     storesContractedPlanChange: 28.5,
     planBreakdown: {
       basicoMensual: 198,
       basicoAnual: 156,
       avanzadoMensual: 112,
       avanzadoAnual: 146,
-      enterprise: 12,
     },
     totalRevenue: 1850000,
     totalRevenueChange: 22.3,
@@ -59,14 +56,13 @@ const dataByPeriod: Record<string, {
     gmvChange: 35.2,
     storesCreatedWithAI: 10850,
     storesCreatedWithAIChange: 45.8,
-    storesContractedPlan: 1890,
+    storesContractedPlan: 1848,
     storesContractedPlanChange: 52.3,
     planBreakdown: {
       basicoMensual: 580,
       basicoAnual: 485,
       avanzadoMensual: 345,
       avanzadoAnual: 438,
-      enterprise: 42,
     },
     totalRevenue: 5200000,
     totalRevenueChange: 38.5,
@@ -99,7 +95,7 @@ export function TimeSensitiveKPIs() {
           sparklineData={generateSparklineData(data.storesCreatedWithAI, 14)}
         />
         
-        {/* Card especial con desglose de planes */}
+        {/* Card especial con desglose de planes (sin Enterprise) */}
         <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
           <div className="flex items-center justify-between mb-3">
             <div>
@@ -111,7 +107,7 @@ export function TimeSensitiveKPIs() {
             </div>
           </div>
           
-          {/* Desglose por tipo de plan */}
+          {/* Desglose por tipo de plan (sin Enterprise) */}
           <div className="mt-4 pt-4 border-t border-gray-100">
             <div className="text-xs font-medium text-gray-500 mb-2">Desglose por plan:</div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
@@ -130,10 +126,6 @@ export function TimeSensitiveKPIs() {
               <div className="flex justify-between">
                 <span className="text-gray-600">Avanzado Anual</span>
                 <span className="font-semibold text-purple-700">{data.planBreakdown.avanzadoAnual}</span>
-              </div>
-              <div className="flex justify-between col-span-2">
-                <span className="text-gray-600">Enterprise</span>
-                <span className="font-semibold text-amber-600">{data.planBreakdown.enterprise}</span>
               </div>
             </div>
           </div>
